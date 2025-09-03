@@ -130,3 +130,6 @@ func main() {
    println("Email sent!")
 }
 ```
+
+## Acknowledgements
+I would like to sincerely thank [Vladislav Trotsenko](https://github.com/bestwebua) for creating [https://github.com/mocktools/go-smtp-mock], which made creating integration tests for this library much easier.
