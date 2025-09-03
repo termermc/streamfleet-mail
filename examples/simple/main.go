@@ -1,52 +1,3 @@
-# streamfleet-mail
-Redis-backed resilient email queue for Go.
-
-The library is tightly coupled with Streamfleet, which provides a work queue that is tolerant to network loss and supports Redis clusters.
-
-Instead of reinventing the wheel, the library wraps around [go-mail](https://github.com/wneessen/go-mail) to provide email/SMTP functionality.
-It simply provides the client-worker queue system for facilitating sending emails.
-
-## Features
-
- - Fully-featured email support via [go-mail](https://github.com/wneessen/go-mail)
- - Support for Redis Sentinel and Cluster
- - Automatic retry and worker crash recovery
- - Tolerance for Redis downtime without data loss
-
-## Architecture
-
-The library is broken up into two components, coordinated by Redis:
-
- - The client, which submits (enqueues) emails to the queue.
-
- - The worker, which accepts emails from the queue and sends them with a configured email client.
-
-   In addition to receiving new emails, workers can claim emails that have sat idle too long in other workers' pending lists.
-   Only workers that have crashed or are unresponsive would have their emails reclaimed.
-
-   If an email fails to send while the worker is running, the worker will put the email back on the queue and increment its failure count.
-
-Note that workers and clients may exist on the same process; they do not need to be in separate microservices.
-
-If the underlying Redis server is unavailable, the clients will wait until it comes back online.
-Emails submitted to the client stay queued in-memory until Redis is available.
-
-To read more about how the underlying queue works, see [Streamfleet](https://github.com/termermc/streamfleet)'s documentation.
-
-## Use It
-
-To use the library, it is recommended to add it and [go-mail](https://github.com/wneessen/go-mail) to your project:
-
-```bash
-go get https://github.com/termermc/streamfleet-mail
-go get https://github.com/wneessen/go-mail
-```
-
-To see some examples, visit the [examples](./examples) directory.
-
-### Simple Example
-
-```go
 package main
 
 import (
@@ -129,4 +80,3 @@ func main() {
 
 	println("Email sent!")
 }
-```
