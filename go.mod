@@ -3,7 +3,7 @@ module github.com/termermc/streamfleet-mail
 go 1.24.6
 
 require (
-	github.com/termermc/streamfleet v0.1.0
+	github.com/termermc/streamfleet v0.1.1
 	github.com/wneessen/go-mail v0.6.2
 )
 
