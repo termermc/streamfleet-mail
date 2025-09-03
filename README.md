@@ -132,4 +132,4 @@ func main() {
 ```
 
 ## Acknowledgements
-I would like to sincerely thank [Vladislav Trotsenko](https://github.com/bestwebua) for creating [https://github.com/mocktools/go-smtp-mock], which made creating integration tests for this library much easier.
+I would like to sincerely thank [Vladislav Trotsenko](https://github.com/bestwebua) for creating [go-smtp-mock](https://github.com/mocktools/go-smtp-mock), which made creating integration tests for this library much easier.
