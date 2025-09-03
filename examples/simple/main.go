@@ -26,9 +26,9 @@ func main() {
 	// ServerUniqueId is used to differentiate workers from each other.
 	// Some other options we could specify:
 	//  - Logger (an implementation of slog.Logger from the standard library to override the default logger)
-	//  - HandlerConcurrency (how many concurrent tasks the server can handle, defaults to 1)
+	//  - HandlerConcurrency (how many concurrent emails the worker can send, defaults to 1)
 	// Take a look at the streamfleet.ServerOpt struct for a complete list of options.
-	server, err := sfm.NewWorker(ctx, mailClient, streamfleet.ServerOpt{
+	worker, err := sfm.NewWorker(ctx, mailClient, streamfleet.ServerOpt{
 		ServerUniqueId: "node1.example.com",
 		RedisOpt:       redisOpt,
 	}, MailQueueKey)
@@ -36,14 +36,14 @@ func main() {
 		panic(err)
 	}
 	defer func() {
-		_ = server.Close()
+		_ = worker.Close()
 	}()
 
-	// Launch server.
+	// Launch worker.
 	// The Run() method blocks until the worker is closed or runs into a fatal error, so it is launched in its own goroutine.
 	// Note that workers do not need to be created before clients; queued emails will be picked up as soon as a worker is available.
 	go func() {
-		err := server.Run()
+		err := worker.Run()
 		if err != nil {
 			panic(err)
 		}
