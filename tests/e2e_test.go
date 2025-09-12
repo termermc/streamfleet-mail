@@ -3,13 +3,14 @@ package tests
 import (
 	"context"
 	"fmt"
-	smtpmock "github.com/mocktools/go-smtp-mock/v2"
-	sfm "github.com/termermc/streamfleet-mail"
-	"github.com/wneessen/go-mail"
 	"math/rand/v2"
 	"strconv"
 	"testing"
 	"time"
+
+	smtpmock "github.com/mocktools/go-smtp-mock/v2"
+	sfm "github.com/termermc/streamfleet-mail"
+	"github.com/wneessen/go-mail"
 
 	"github.com/termermc/streamfleet"
 	"github.com/testcontainers/testcontainers-go"

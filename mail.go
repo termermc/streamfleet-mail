@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"context"
 	"fmt"
+
 	"github.com/termermc/streamfleet"
 	"github.com/wneessen/go-mail"
 )

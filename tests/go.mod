@@ -8,7 +8,7 @@ require (
 	github.com/mocktools/go-smtp-mock/v2 v2.5.1
 	github.com/termermc/streamfleet v0.1.1
 	github.com/testcontainers/testcontainers-go v0.38.0
-	github.com/wneessen/go-mail v0.6.2
+	github.com/wneessen/go-mail v0.7.0
 )
 
 require (
@@ -68,6 +68,6 @@ require (
 	go.opentelemetry.io/proto/otlp v1.0.0 // indirect
 	golang.org/x/crypto v0.37.0 // indirect
 	golang.org/x/sys v0.32.0 // indirect
-	golang.org/x/text v0.24.0 // indirect
+	golang.org/x/text v0.29.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )

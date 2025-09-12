@@ -4,7 +4,7 @@ go 1.24.6
 
 require (
 	github.com/termermc/streamfleet v0.1.1
-	github.com/wneessen/go-mail v0.6.2
+	github.com/wneessen/go-mail v0.7.0
 )
 
 require (
@@ -13,6 +13,5 @@ require (
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/puzpuzpuz/xsync/v4 v4.1.0 // indirect
 	github.com/redis/go-redis/v9 v9.12.1 // indirect
-	golang.org/x/crypto v0.37.0 // indirect
-	golang.org/x/text v0.24.0 // indirect
+	golang.org/x/text v0.29.0 // indirect
 )
